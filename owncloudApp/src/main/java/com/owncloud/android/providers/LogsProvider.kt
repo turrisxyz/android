@@ -29,7 +29,7 @@ class LogsProvider(
     private val sharedPreferencesProvider = SharedPreferencesProviderImpl(context)
 
     fun initHttpLogs() {
-        val httpLogsEnabled: Boolean = sharedPreferencesProvider.getBoolean(PREFERENCE_LOG_HTTP, false)
+        val httpLogsEnabled: Boolean = sharedPreferencesProvider.getBoolean(PREFERENCE_LOG_HTTP, true)
         LogInterceptor.httpLogsEnabled = httpLogsEnabled
     }
 
