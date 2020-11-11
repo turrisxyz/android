@@ -52,6 +52,9 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.google.android.material.snackbar.Snackbar
 import com.owncloud.android.AppRater
 import com.owncloud.android.MainApp
@@ -95,6 +98,7 @@ import com.owncloud.android.ui.preview.PreviewImageFragment
 import com.owncloud.android.ui.preview.PreviewTextFragment
 import com.owncloud.android.ui.preview.PreviewVideoActivity
 import com.owncloud.android.ui.preview.PreviewVideoFragment
+import com.owncloud.android.workers.DownloadFileWorker
 import com.owncloud.android.utils.DisplayUtils
 import com.owncloud.android.utils.Extras
 import com.owncloud.android.utils.FileStorageUtils
@@ -105,6 +109,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 import timber.log.Timber
 import java.io.File
 import java.util.ArrayList
@@ -1564,10 +1569,17 @@ class FileDisplayActivity : FileActivity(), FileFragment.ContainerActivity, OnEn
     private fun requestForDownload(file: OCFile?) {
         val account = account
         if (!mDownloaderBinder.isDownloading(account, fileWaitingToPreview)) {
-            val i = Intent(this, FileDownloader::class.java)
-            i.putExtra(FileDownloader.KEY_ACCOUNT, account)
-            i.putExtra(FileDownloader.KEY_FILE, file)
-            startService(i)
+            val downloadFileWorker: DownloadFileWorker by inject()
+            val inputData = workDataOf(
+                DownloadFileWorker.KEY_PARAM_ACCOUNT to account.name,
+                DownloadFileWorker.KEY_PARAM_FILE_ID to file?.id
+            )
+            val downloadFileWork = OneTimeWorkRequestBuilder<DownloadFileWorker>().setInputData(inputData).build()
+            WorkManager.getInstance(applicationContext).enqueue(downloadFileWork)
+//            val i = Intent(this, FileDownloader::class.java)
+//            i.putExtra(FileDownloader.KEY_ACCOUNT, account)
+//            i.putExtra(FileDownloader.KEY_FILE, file)
+//            startService(i)
         }
     }
 
