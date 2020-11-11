@@ -49,6 +49,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.Ignore
 
 class OCSettingsMoreTest {
 
@@ -143,6 +144,7 @@ class OCSettingsMoreTest {
         onView(withText(R.string.drawer_feedback)).check(matches(isDisplayed()))
     }
 
+    @Ignore
     @Test
     fun feedbackOpenSender() {
         val intentResult = ActivityResult(Activity.RESULT_OK, Intent())
