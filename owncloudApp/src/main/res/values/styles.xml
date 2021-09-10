@@ -49,9 +49,10 @@
 
     <!-- Splash Screen -->
     <style name="Theme.ownCloud.Splash">
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
-
     <!-- Extends Theme.ownCloud to remove legacy ActionBar from the window and add, via layouts, a Toolbar -->
     <style name="Theme.ownCloud.Toolbar">
         <item name="windowNoTitle">true</item>

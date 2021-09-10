@@ -153,6 +153,8 @@ class FileDisplayActivity : FileActivity(), FileFragment.ContainerActivity, OnEn
     override fun onCreate(savedInstanceState: Bundle?) {
         Timber.v("onCreate() start")
 
+        setTheme(R.style.Theme_ownCloud_Toolbar_Drawer)
+
         super.onCreate(savedInstanceState) // this calls onAccountChanged() when ownCloud Account is valid
 
         localBroadcastManager = LocalBroadcastManager.getInstance(this)
