@@ -77,8 +77,9 @@ class FileListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            ViewType.LIST_ITEM.ordinal -> {
+        val safeViewType = ViewType.values().getOrNull(viewType) ?: throw IllegalArgumentException()
+        return when (safeViewType) {
+            ViewType.LIST_ITEM -> {
                 val binding = ItemFileListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 binding.root.apply {
                     tag = ViewType.LIST_ITEM
@@ -86,17 +87,17 @@ class FileListAdapter(
                 }
                 ListViewHolder(binding)
             }
-            ViewType.GRID_IMAGE.ordinal -> {
+            ViewType.GRID_IMAGE -> {
                 val binding = GridItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 binding.root.tag = ViewType.GRID_IMAGE
                 GridImageViewHolder(binding)
             }
-            ViewType.GRID_ITEM.ordinal -> {
+            ViewType.GRID_ITEM -> {
                 val binding = GridItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 binding.root.tag = ViewType.GRID_ITEM
                 GridViewHolder(binding)
             }
-            else -> {
+            ViewType.FOOTER -> {
                 val binding = ListFooterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 binding.root.tag = ViewType.FOOTER
                 FooterViewHolder(binding)
