@@ -263,6 +263,7 @@ class PassCodeActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             passCodeViewModel.resetNumberOfAttempts()
+            PassCodeManager.onActivityStopped(this)
             finish()
         } else {
             showErrorAndRestart(
@@ -428,6 +429,7 @@ class PassCodeActivity : AppCompatActivity() {
         passCodeViewModel.setPassCode(passCodeString.toString())
         setResult(RESULT_OK, resultIntent)
         notifyDocumentProviderRoots(applicationContext)
+        PassCodeManager.onActivityStopped(this)
         finish()
     }
 
