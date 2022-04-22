@@ -107,9 +107,9 @@ class MainApp : Application() {
                 Timber.d("${activity.javaClass.simpleName} onCreate(Bundle) starting")
 
                 // To prevent taking screenshots in the whole app
-                //if (!BuildConfig.DEBUG && !baseContext.resources.getBoolean(R.bool.allow_screenshots)) {
+                if (!BuildConfig.DEBUG && !baseContext.resources.getBoolean(R.bool.allow_screenshots)) {
                     activity.window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
-                //}
+                }
 
                 // If there's any lock protection, don't show wizard at this point, show it when lock activities
                 // have finished
