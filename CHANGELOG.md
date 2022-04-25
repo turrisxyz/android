@@ -20,6 +20,7 @@ Summary
 * Enhancement - What´s new option: [#3352](https://github.com/owncloud/android/issues/3352)
 * Enhancement - New option to show or not hidden files: [#2578](https://github.com/owncloud/android/issues/2578)
 * Enhancement - Full name is shown in shares: [#1106](https://github.com/owncloud/android/issues/1106)
+* Enhancement - Send for file multiselect: [#3491](https://github.com/owncloud/android/issues/3491)
 
 Details
 -------
@@ -115,6 +116,13 @@ Details
 
    https://github.com/owncloud/android/issues/1106
    https://github.com/owncloud/android/pull/3636
+
+* Enhancement - Send for file multiselect: [#3491](https://github.com/owncloud/android/issues/3491)
+
+   Send multiple files at once if they are downloaded.
+
+   https://github.com/owncloud/android/issues/3491
+   https://github.com/owncloud/android/pull/3638
 
 Changelog for ownCloud Android Client [2.20.0] (2022-02-16)
 =======================================
