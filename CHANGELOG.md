@@ -20,6 +20,7 @@ Summary
 * Enhancement - What´s new option: [#3352](https://github.com/owncloud/android/issues/3352)
 * Enhancement - New option to show or not hidden files: [#2578](https://github.com/owncloud/android/issues/2578)
 * Enhancement - Full name is shown in shares: [#1106](https://github.com/owncloud/android/issues/1106)
+* Enhancement - Improved copy/move dialog: [#1414](https://github.com/owncloud/android/issues/1414)
 
 Details
 -------
@@ -115,6 +116,14 @@ Details
 
    https://github.com/owncloud/android/issues/1106
    https://github.com/owncloud/android/pull/3636
+
+* Enhancement - Improved copy/move dialog: [#1414](https://github.com/owncloud/android/issues/1414)
+
+   Previously,they appeared exactly the same and there was no way of knowing which was which. Now
+   they are differentiated by the text on the action button.
+
+   https://github.com/owncloud/android/issues/1414
+   https://github.com/owncloud/android/pull/3640
 
 Changelog for ownCloud Android Client [2.20.0] (2022-02-16)
 =======================================
