@@ -23,6 +23,7 @@ Summary
 * Enhancement - New option to show or not hidden files: [#2578](https://github.com/owncloud/android/issues/2578)
 * Enhancement - Option to allow screenshots or not in Android Enterprise: [#3625](https://github.com/owncloud/android/issues/3625)
 * Enhancement - Full name is shown in shares: [#1106](https://github.com/owncloud/android/issues/1106)
+* Enhancement - Support for SVG files added: [#1033](https://github.com/owncloud/android/issues/1033)
 
 Details
 -------
@@ -142,6 +143,13 @@ Details
 
    https://github.com/owncloud/android/issues/1106
    https://github.com/owncloud/android/pull/3636
+
+* Enhancement - Support for SVG files added: [#1033](https://github.com/owncloud/android/issues/1033)
+
+   SVG files are supported and can be downloaded and viewed.
+
+   https://github.com/owncloud/android/issues/1033
+   https://github.com/owncloud/android/pull/3639
 
 Changelog for ownCloud Android Client [2.20.0] (2022-02-16)
 =======================================
